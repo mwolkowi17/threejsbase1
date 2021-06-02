@@ -26,18 +26,14 @@ scene.add(cube);
 
 
 camera.position.z = 5;
-const controls = new THREE.OrbitControls(camera, canvas);
-controls.target.set(0, 5, 0);
-controls.enablePan=true;
-controls.autoRotate = true;
-controls.update(true);
+
 
 const animate = function () {
     requestAnimationFrame(animate);
 
     cube.rotation.x += 0.02;
     cube.rotation.y += 0.01;
-    controls.update();
+    
     renderer.render(scene, camera);
 };
 
