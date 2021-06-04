@@ -4,24 +4,19 @@ import { Scene } from 'three';
 // input segment
 const btn = document.getElementById("action");
 
-btn.addEventListener("click", function() {
-	//Do something here
+btn.addEventListener("click", function () {
+    //Do something here
     let boxwidthinput = document.getElementById("myInput").value
-
-    console.log(boxwidthinput);
     let boxwidthinputnumber = parseFloat(boxwidthinput);
-    cube.scale.x=boxwidthinputnumber;
+    if (boxwidthinputnumber != 0) {
+        cube.scale.x = boxwidthinputnumber;
+    }
+
+    //cube.position.x=2;
 });
 
-let boxwidthinput;
-function myFunction(){
-    boxwidthinput = document.getElementById("myInput").value
-    //console.log(boxwidthinput);
-    let boxwidthinputnumber = parseFloat(boxwidthinput);
-    cube.scale.x=boxwidthinputnumber;
-    console.log("scaled")
-    //animate();
-} 
+//cube.position.x=2; do zrobienia
+
 
 
 
@@ -32,8 +27,8 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-let width=2;
 
+const width = 2;
 const height = 1;
 const depth = 1;
 const geometry = new THREE.BoxGeometry(width, height, depth);
@@ -53,15 +48,15 @@ light2.position.set(-10, 10, 0);
 light2.target.position.set(-5, 0, 0);
 
 const points = [];
-points.push( new THREE.Vector3( - 10, 0, 0 ) );
-points.push( new THREE.Vector3( 0, 10, 0 ) );
+points.push(new THREE.Vector3(- 10, 0, 0));
+points.push(new THREE.Vector3(0, 10, 0));
 //points.push( new THREE.Vector3( 10, 0, 0 ) );
 
-const geometryB = new THREE.BufferGeometry().setFromPoints( points );
-const line = new THREE.Line( geometryB, materialB );
-cube.add( line );
+const geometryB = new THREE.BufferGeometry().setFromPoints(points);
+const line = new THREE.Line(geometryB, materialB);
+cube.add(line);
 scene.add(cube);
-scene.add( light );
+scene.add(light);
 scene.add(light2);
 scene.add(light2.target);
 
@@ -73,10 +68,10 @@ const animate = function () {
 
     cube.rotation.x += 0.02;
     cube.rotation.y += 0.01;
-    
+
     renderer.render(scene, camera);
 
-  
+
 };
 
 animate();
