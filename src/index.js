@@ -8,7 +8,10 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const geometry = new THREE.BoxGeometry();
+const width = 2;
+const height = 1;
+const depth = 1;
+const geometry = new THREE.BoxGeometry(width, height, depth);
 const material = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
 //onst material = new THREE.MeshPhongMaterial();
 const materialB = new THREE.MeshBasicMaterial({ color: 0x0000FFFF });
