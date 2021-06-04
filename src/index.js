@@ -1,6 +1,30 @@
 import * as THREE from 'three';
 import { Scene } from 'three';
 
+// input segment
+const btn = document.getElementById("action");
+
+btn.addEventListener("click", function() {
+	//Do something here
+    let boxwidthinput = document.getElementById("myInput").value
+
+    console.log(boxwidthinput);
+    let boxwidthinputnumber = parseFloat(boxwidthinput);
+    cube.scale.x=boxwidthinputnumber;
+});
+
+let boxwidthinput;
+function myFunction(){
+    boxwidthinput = document.getElementById("myInput").value
+    //console.log(boxwidthinput);
+    let boxwidthinputnumber = parseFloat(boxwidthinput);
+    cube.scale.x=boxwidthinputnumber;
+    console.log("scaled")
+    //animate();
+} 
+
+
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -8,7 +32,8 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const width = 2;
+let width=2;
+
 const height = 1;
 const depth = 1;
 const geometry = new THREE.BoxGeometry(width, height, depth);
@@ -50,6 +75,8 @@ const animate = function () {
     cube.rotation.y += 0.01;
     
     renderer.render(scene, camera);
+
+  
 };
 
 animate();
